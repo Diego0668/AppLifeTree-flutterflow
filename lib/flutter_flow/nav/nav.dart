@@ -53,24 +53,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => EsqueciMinhaSenhaWidget(),
         ),
         FFRoute(
-          name: 'EsqueciMinhaSenha2',
-          path: '/esqueciMinhaSenha2',
-          builder: (context, params) => EsqueciMinhaSenha2Widget(),
-        ),
-        FFRoute(
           name: 'Cupons',
           path: '/cupons',
           builder: (context, params) => CuponsWidget(),
-        ),
-        FFRoute(
-          name: 'LoginAppCopy',
-          path: '/loginAppCopy',
-          builder: (context, params) => LoginAppCopyWidget(),
-        ),
-        FFRoute(
-          name: 'Cadastro',
-          path: '/cadastro',
-          builder: (context, params) => CadastroWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

@@ -131,200 +131,59 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
           elevation: 0.0,
         ),
       ),
-      body: Align(
-        alignment: AlignmentDirectional(0.0, -0.8),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 8.0),
-                child: Row(
+      body: InkWell(
+        splashColor: Colors.transparent,
+        focusColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: () async {},
+        child: Stack(
+          children: [
+            Align(
+              alignment: AlignmentDirectional(0.0, -0.8),
+              child: SingleChildScrollView(
+                child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Expanded(
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 4.0, 4.0),
-                        child: Text(
-                          'Para recuperar a sua senha, informe o seu email que enviaremos um link para a alteração de senha',
-                          style:
-                              FlutterFlowTheme.of(context).bodySmall.override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.1, 0.35),
-                child: Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 24.0, 0.0),
-                  child: Container(
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5.0,
-                          color: Color(0x4D101213),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.15, 0.5),
-                          child: TextFormField(
-                            controller: _model.emailAddressController1,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                              labelText: 'Email',
-                              labelStyle: FlutterFlowTheme.of(context)
-                                  .bodySmall
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              hintStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Lexend Deca',
-                                    color: Color(0xFF57636C),
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 0.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 0.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 0.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Color(0x00000000),
-                                  width: 0.0,
-                                ),
-                                borderRadius: BorderRadius.circular(12.0),
-                              ),
-                              filled: true,
-                              fillColor: Colors.white,
-                              contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 24.0, 20.0, 24.0),
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Color(0xFF0F1113),
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                            maxLines: null,
-                            validator: _model.emailAddressController1Validator
-                                .asValidator(context),
-                          ),
-                        ),
-                        TextFormField(
-                          controller: _model.emailAddressController2,
-                          obscureText: false,
-                          decoration: InputDecoration(
-                            labelText: 'Email',
-                            labelStyle:
-                                FlutterFlowTheme.of(context).bodySmall.override(
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(20.0, 4.0, 20.0, 8.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Expanded(
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  4.0, 4.0, 4.0, 4.0),
+                              child: Text(
+                                'Para recuperar a sua senha, informe a sua nova senha que deseja',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodySmall
+                                    .override(
                                       fontFamily: 'Outfit',
                                       color: Color(0xFF57636C),
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                     ),
-                            hintStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Lexend Deca',
-                                  color: Color(0xFF57636C),
-                                  fontWeight: FontWeight.normal,
-                                ),
-                            enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 0.0,
                               ),
-                              borderRadius: BorderRadius.circular(12.0),
                             ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 0.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 0.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Color(0x00000000),
-                                width: 0.0,
-                              ),
-                              borderRadius: BorderRadius.circular(12.0),
-                            ),
-                            filled: true,
-                            fillColor: Colors.white,
-                            contentPadding: EdgeInsetsDirectional.fromSTEB(
-                                24.0, 24.0, 20.0, 24.0),
                           ),
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    fontFamily: 'Outfit',
-                                    color: Color(0xFF0F1113),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                          maxLines: null,
-                          validator: _model.emailAddressController2Validator
-                              .asValidator(context),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
               ),
-              Padding(
+            ),
+            Align(
+              alignment: AlignmentDirectional(0.1, 0.09),
+              child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('EsqueciMinhaSenha2');
+                    context.pushNamed('LoginApp');
                   },
-                  text: 'Enviar o link',
+                  text: 'Redefinir Senha',
                   options: FFButtonOptions(
                     width: 270.0,
                     height: 50.0,
@@ -346,8 +205,114 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(-0.17, -0.34),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                child: Container(
+                  width: 370.0,
+                  child: TextFormField(
+                    controller: _model.emailAddressController1,
+                    autofocus: true,
+                    autofillHints: [AutofillHints.email],
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Confirme sua senha',
+                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    keyboardType: TextInputType.emailAddress,
+                    validator: _model.emailAddressController1Validator
+                        .asValidator(context),
+                  ),
+                ),
+              ),
+            ),
+            Align(
+              alignment: AlignmentDirectional(-0.14, -0.62),
+              child: Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
+                child: Container(
+                  width: 370.0,
+                  child: TextFormField(
+                    controller: _model.emailAddressController2,
+                    autofocus: true,
+                    autofillHints: [AutofillHints.email],
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      labelText: 'Senha',
+                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primaryBackground,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    keyboardType: TextInputType.visiblePassword,
+                    validator: _model.emailAddressController2Validator
+                        .asValidator(context),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );

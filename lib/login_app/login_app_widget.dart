@@ -267,6 +267,8 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
+                                      keyboardType:
+                                          TextInputType.visiblePassword,
                                       validator: _model
                                           .passwordControllerValidator
                                           .asValidator(context),
@@ -323,19 +325,6 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                 ),
                               ],
                             ),
-                          ),
-                        ),
-                        InkWell(
-                          splashColor: Colors.transparent,
-                          focusColor: Colors.transparent,
-                          hoverColor: Colors.transparent,
-                          highlightColor: Colors.transparent,
-                          onTap: () async {
-                            context.pushNamed('Cadastro');
-                          },
-                          child: Text(
-                            'Cadastre-se',
-                            style: FlutterFlowTheme.of(context).bodyMedium,
                           ),
                         ),
                       ],
