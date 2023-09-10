@@ -55,14 +55,14 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                   decoration: BoxDecoration(
                     color: Color(0xFFB7D5AC),
                   ),
-                  alignment: AlignmentDirectional(0.0, -1.0),
+                  alignment: AlignmentDirectional(0.00, -1.00),
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Align(
-                          alignment: AlignmentDirectional(0.15, 0.0),
+                          alignment: AlignmentDirectional(0.15, 0.00),
                           child: Container(
                             width: double.infinity,
                             height: 244.2,
@@ -75,9 +75,9 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                 topRight: Radius.circular(0.0),
                               ),
                             ),
-                            alignment: AlignmentDirectional(-1.0, 0.0),
+                            alignment: AlignmentDirectional(-1.00, 0.00),
                             child: Align(
-                              alignment: AlignmentDirectional(0.0, 0.8),
+                              alignment: AlignmentDirectional(0.00, 0.80),
                               child: Image.asset(
                                 'assets/images/arvorelogo1.png',
                                 width: 123.0,
@@ -88,7 +88,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                           ),
                         ),
                         Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
+                          alignment: AlignmentDirectional(0.00, 0.00),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 32.0, 32.0, 32.0, 32.0),
@@ -97,7 +97,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Align(
-                                  alignment: AlignmentDirectional(-0.05, 0.0),
+                                  alignment: AlignmentDirectional(-0.05, 0.00),
                                   child: Text(
                                     'Life Tree',
                                     style: FlutterFlowTheme.of(context)
@@ -109,7 +109,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.05, 0.0),
+                                  alignment: AlignmentDirectional(0.05, 0.00),
                                   child: Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 24.0),
@@ -276,7 +276,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(-0.95, 0.7),
+                                  alignment: AlignmentDirectional(-0.95, 0.70),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
                                     focusColor: Colors.transparent,
@@ -293,10 +293,10 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                   ),
                                 ),
                                 Align(
-                                  alignment: AlignmentDirectional(0.0, -0.05),
+                                  alignment: AlignmentDirectional(0.00, -0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed('Cupons');
+                                      context.pushNamed('Estoque');
                                     },
                                     text: 'Entrar',
                                     options: FFButtonOptions(

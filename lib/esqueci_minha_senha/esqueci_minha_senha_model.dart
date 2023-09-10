@@ -10,19 +10,15 @@ class EsqueciMinhaSenhaModel extends FlutterFlowModel {
   ///  State fields for stateful widgets in this page.
 
   // State field(s) for emailAddress widget.
-  TextEditingController? emailAddressController1;
-  String? Function(BuildContext, String?)? emailAddressController1Validator;
-  // State field(s) for emailAddress widget.
-  TextEditingController? emailAddressController2;
-  String? Function(BuildContext, String?)? emailAddressController2Validator;
+  TextEditingController? emailAddressController;
+  String? Function(BuildContext, String?)? emailAddressControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
   void dispose() {
-    emailAddressController1?.dispose();
-    emailAddressController2?.dispose();
+    emailAddressController?.dispose();
   }
 
   /// Action blocks are added here.

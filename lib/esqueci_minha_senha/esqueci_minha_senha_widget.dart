@@ -26,8 +26,7 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
     super.initState();
     _model = createModel(context, () => EsqueciMinhaSenhaModel());
 
-    _model.emailAddressController1 ??= TextEditingController();
-    _model.emailAddressController2 ??= TextEditingController();
+    _model.emailAddressController ??= TextEditingController();
   }
 
   @override
@@ -50,7 +49,7 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
           actions: [],
           flexibleSpace: FlexibleSpaceBar(
             title: Align(
-              alignment: AlignmentDirectional(-0.3, 0.25),
+              alignment: AlignmentDirectional(-0.30, 0.25),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -140,7 +139,7 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
         child: Stack(
           children: [
             Align(
-              alignment: AlignmentDirectional(0.0, -0.8),
+              alignment: AlignmentDirectional(0.00, -0.80),
               child: SingleChildScrollView(
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
@@ -176,7 +175,7 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(0.1, 0.09),
+              alignment: AlignmentDirectional(0.10, 0.09),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                 child: FFButtonWidget(
@@ -207,66 +206,13 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
               ),
             ),
             Align(
-              alignment: AlignmentDirectional(-0.17, -0.34),
-              child: Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-                child: Container(
-                  width: 370.0,
-                  child: TextFormField(
-                    controller: _model.emailAddressController1,
-                    autofocus: true,
-                    autofillHints: [AutofillHints.email],
-                    obscureText: false,
-                    decoration: InputDecoration(
-                      labelText: 'Confirme sua senha',
-                      labelStyle: FlutterFlowTheme.of(context).labelMedium,
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primaryBackground,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).primary,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      errorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: FlutterFlowTheme.of(context).alternate,
-                          width: 2.0,
-                        ),
-                        borderRadius: BorderRadius.circular(12.0),
-                      ),
-                      filled: true,
-                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
-                    ),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                    keyboardType: TextInputType.emailAddress,
-                    validator: _model.emailAddressController1Validator
-                        .asValidator(context),
-                  ),
-                ),
-              ),
-            ),
-            Align(
               alignment: AlignmentDirectional(-0.14, -0.62),
               child: Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
                 child: Container(
                   width: 370.0,
                   child: TextFormField(
-                    controller: _model.emailAddressController2,
+                    controller: _model.emailAddressController,
                     autofocus: true,
                     autofillHints: [AutofillHints.email],
                     obscureText: false,
@@ -306,7 +252,7 @@ class _EsqueciMinhaSenhaWidgetState extends State<EsqueciMinhaSenhaWidget> {
                     ),
                     style: FlutterFlowTheme.of(context).bodyMedium,
                     keyboardType: TextInputType.visiblePassword,
-                    validator: _model.emailAddressController2Validator
+                    validator: _model.emailAddressControllerValidator
                         .asValidator(context),
                   ),
                 ),
