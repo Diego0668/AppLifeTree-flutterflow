@@ -39,24 +39,26 @@ class ProdutoModel {
 ProdutoModel copyWith({
     int? id,
     String? nome, 
-    String? imagem, 
+    ByteConversionSink? imagem, 
     String? statusProd, 
     String? quantidade, 
 
-}){
-    return ProdutoModel ({
+})
+  {
+    return ProdutoModel (
     id: id ?? this.id,
     nome: nome ?? this.nome,
     imagem: imagem ?? this.imagem,
     statusProd: statusProd ?? this.statusProd,
-    quantidade: quantidade ?? this.quantidade,
+    quantidade: quantidade ?? this.quantidade,);
 
-})
 
 }
+
+
  @override
   String toString() {
-    return 'ProdutoModel(id: $id, nome: $nome ,imagem: $imagem ,senha: $senha, statusProd: $statusProd, quantidade: $quantidade)';
+    return 'ProdutoModel(id: $id, nome: $nome ,imagem: $imagem ,statusProd: $statusProd, quantidade: $quantidade)';
 
 
 

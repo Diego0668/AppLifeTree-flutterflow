@@ -8,7 +8,9 @@ class FuncionarioModel {
   dynamic senha;
   dynamic nivelAcess;
 
+
   FuncionarioModel({var id , var nome , var email , var senha , var nivelAcess});
+
 
   Map <String, dynamic> toMap(){
 
@@ -43,23 +45,22 @@ FuncionarioModel copyWith({
     String? senha, 
     String? nivelAcess, 
 
-}){
-    return FuncionarioModel ({
+})
+
+{
+    return FuncionarioModel (
     id: id ?? this.id,
     nome: nome ?? this.nome,
     email: email ?? this.email,
     senha: senha ?? this.senha,
-    nivelAcess: nivelAcess ?? this.nivelAcess,
-
-})
+    nivelAcess: nivelAcess ?? this.nivelAcess,);
 
 }
+
+
  @override
   String toString() {
-    return 'FuncionarioModel(id: $id, nome: $nome ,email: $email ,senha: $senha, nivelAcess: $nivelAcess, ativo: $ativo, emailConfirmado: $emailConfirmado, telefoneConfirmado: $telefoneConfirmado, dataDeRegistro: $dataDeRegistro)';
+    
+    return 'FuncionarioModel(id: $id, nome: $nome ,email: $email ,senha: $senha, nivelAcess: $nivelAcess)';
   }
-
-
-
-
 }

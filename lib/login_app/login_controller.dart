@@ -14,13 +14,13 @@ class LoginController{
                     "senha": senha.toString()
                 });
     try {
-        dynamic response = await dio.post('http://localhost:8080/api/lifetree/funcionario', 
-              options: Options(contentType: 'application/json; charset=UTF-8'), 
+        dynamic response = await dio.post('http://localhost:8080/api/lifetree/funcionario/funcionarioApi', 
+              options: Options(contentType: 'application/json; charset=UTF-8', headers: {'Access-Control-Allow-Origin':'*'}), 
               data: dados);
         if(response.statusCode == 200){
           //print(response.data);
           var resultado = Map.from(response.data);
-          model.usuario = resultado.values.elementAt(2);
+          model.email = resultado.values.elementAt(2);
           //print(model.usuario);
           return true;
         }

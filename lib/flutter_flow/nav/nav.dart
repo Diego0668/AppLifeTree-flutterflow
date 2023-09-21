@@ -48,11 +48,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => LoginAppWidget(),
         ),
         FFRoute(
-          name: 'EsqueciMinhaSenha',
-          path: '/esqueciMinhaSenha',
-          builder: (context, params) => EsqueciMinhaSenhaWidget(),
-        ),
-        FFRoute(
           name: 'Estoque',
           path: '/estoque',
           builder: (context, params) => EstoqueWidget(),

@@ -34,6 +34,11 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
 
   @override
   Widget build(BuildContext context) {
+
+    var tamanhoTela = MediaQuery.of(context).size;
+    var largura = tamanhoTela.width;
+    var altura = tamanhoTela.height;
+
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
@@ -59,26 +64,32 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 25.0, 10.0, 0.0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Container(
-                    width: 430.0,
-                    height: 122.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        width: 1.0,
-                      ),
-                    ),
-                    alignment: AlignmentDirectional(-1.00, -1.00),
-                    child: Stack(
-                      children: [
-                        Stack(
+            child: Container(
+              width: largura,
+              height: altura,
+              alignment: Alignment.center,
+              
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        width: largura * .8,
+                        height: altura * .15,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
+                        child: Stack(
                           children: [
                             Stack(
                               children: [
@@ -92,95 +103,113 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                               children: [
                                                 Stack(
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  110.0,
-                                                                  35.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Nome do Produto:',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12.0,
+                                                    Stack(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      110.0,
+                                                                      35.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Nome do Produto:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 12.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(15.0),
+                                                            child: Image.network(
+                                                              'https://th.bing.com/th/id/R.b9bd776956841b42cee39b489b7a5ae2?rik=IMmC28jzJYxBIg&riu=http%3a%2f%2flchaimfoods.com%2fwp-content%2fuploads%2f2016%2f08%2fCoca-Cola.jpg&ehk=6vlBpdLML3%2fHbH91ZM2FPkFZsg4%2fbDOLtvUD5cNFl24%3d&risl=&pid=ImgRaw&r=0',
+                                                              width: 90.0,
+                                                              height: 90.0,
+                                                              fit: BoxFit.cover,
                                                             ),
-                                                      ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                        child: Image.network(
-                                                          'https://th.bing.com/th/id/R.b9bd776956841b42cee39b489b7a5ae2?rik=IMmC28jzJYxBIg&riu=http%3a%2f%2flchaimfoods.com%2fwp-content%2fuploads%2f2016%2f08%2fCoca-Cola.jpg&ehk=6vlBpdLML3%2fHbH91ZM2FPkFZsg4%2fbDOLtvUD5cNFl24%3d&risl=&pid=ImgRaw&r=0',
-                                                          width: 90.0,
-                                                          height: 90.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                      padding: EdgeInsetsDirectional
+                                                          .fromSTEB(110.0, 75.0,
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Quantidade:',
+                                                        style: FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(110.0, 75.0,
-                                                          0.0, 0.0),
+                                                      .fromSTEB(
+                                                          110.0, 15.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Quantidade:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
+                                                    'ID:',
+                                                    style:
+                                                        FlutterFlowTheme.of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w900,
+                                                            ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      110.0, 15.0, 0.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                      110.0, 55.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
+                                                'Estoque:',
+                                                style: FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  110.0, 55.0, 0.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              130.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            'Estoque:',
+                                            '1',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
                                         ),
@@ -188,15 +217,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          130.0, 15.0, 0.0, 0.0),
+                                          225.0, 35.0, 0.0, 0.0),
                                       child: Text(
-                                        '1',
+                                        'Coca cola',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
@@ -204,13 +233,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      225.0, 35.0, 0.0, 0.0),
+                                      165.0, 55.0, 0.0, 0.0),
                                   child: Text(
-                                    'Coca cola',
+                                    'Ativo',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.of(context).success,
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -220,15 +251,13 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  165.0, 55.0, 0.0, 0.0),
+                                  190.0, 75.0, 0.0, 0.0),
                               child: Text(
-                                'Ativo',
+                                '50',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color:
-                                          FlutterFlowTheme.of(context).success,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -236,40 +265,22 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              190.0, 75.0, 0.0, 0.0),
-                          child: Text(
-                            '50',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Container(
-                    width: 430.0,
-                    height: 122.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        width: 1.0,
                       ),
                     ),
-                    alignment: AlignmentDirectional(-1.00, -1.00),
-                    child: Stack(
-                      children: [
-                        Stack(
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        width: 430.0,
+                        height: 122.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
+                        child: Stack(
                           children: [
                             Stack(
                               children: [
@@ -283,95 +294,113 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                               children: [
                                                 Stack(
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  110.0,
-                                                                  35.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Nome do Produto:',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12.0,
+                                                    Stack(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      110.0,
+                                                                      35.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Nome do Produto:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 12.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(15.0),
+                                                            child: Image.network(
+                                                              'https://th.bing.com/th/id/OIP.9iB-YdZaK5g7iO7DrJZvNwHaI4?pid=ImgDet&rs=1',
+                                                              width: 90.0,
+                                                              height: 90.0,
+                                                              fit: BoxFit.cover,
                                                             ),
-                                                      ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                        child: Image.network(
-                                                          'https://th.bing.com/th/id/OIP.9iB-YdZaK5g7iO7DrJZvNwHaI4?pid=ImgDet&rs=1',
-                                                          width: 90.0,
-                                                          height: 90.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                      padding: EdgeInsetsDirectional
+                                                          .fromSTEB(110.0, 75.0,
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Quantidade:',
+                                                        style: FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(110.0, 75.0,
-                                                          0.0, 0.0),
+                                                      .fromSTEB(
+                                                          110.0, 15.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Quantidade:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
+                                                    'ID:',
+                                                    style:
+                                                        FlutterFlowTheme.of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w900,
+                                                            ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      110.0, 15.0, 0.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                      110.0, 55.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
+                                                'Estoque:',
+                                                style: FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  110.0, 55.0, 0.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              130.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            'Estoque:',
+                                            '2',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
                                         ),
@@ -379,15 +408,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          130.0, 15.0, 0.0, 0.0),
+                                          225.0, 35.0, 0.0, 0.0),
                                       child: Text(
-                                        '2',
+                                        'Whey Protein',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
@@ -395,13 +424,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      225.0, 35.0, 0.0, 0.0),
+                                      165.0, 55.0, 0.0, 0.0),
                                   child: Text(
-                                    'Whey Protein',
+                                    'Ativo',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.of(context).success,
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -411,15 +442,13 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  165.0, 55.0, 0.0, 0.0),
+                                  190.0, 75.0, 0.0, 0.0),
                               child: Text(
-                                'Ativo',
+                                '252',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color:
-                                          FlutterFlowTheme.of(context).success,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -427,40 +456,22 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              190.0, 75.0, 0.0, 0.0),
-                          child: Text(
-                            '252',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Container(
-                    width: 430.0,
-                    height: 122.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        width: 1.0,
                       ),
                     ),
-                    alignment: AlignmentDirectional(-1.00, -1.00),
-                    child: Stack(
-                      children: [
-                        Stack(
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        width: 430.0,
+                        height: 122.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
+                        child: Stack(
                           children: [
                             Stack(
                               children: [
@@ -474,95 +485,113 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                               children: [
                                                 Stack(
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  110.0,
-                                                                  35.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Nome do Produto:',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12.0,
+                                                    Stack(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      110.0,
+                                                                      35.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Nome do Produto:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 12.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(15.0),
+                                                            child: Image.network(
+                                                              'https://th.bing.com/th/id/OIP.O6qLkAA2WA-0f7jy8MkUtAHaHa?pid=ImgDet&rs=1',
+                                                              width: 90.0,
+                                                              height: 90.0,
+                                                              fit: BoxFit.cover,
                                                             ),
-                                                      ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                        child: Image.network(
-                                                          'https://th.bing.com/th/id/OIP.O6qLkAA2WA-0f7jy8MkUtAHaHa?pid=ImgDet&rs=1',
-                                                          width: 90.0,
-                                                          height: 90.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                      padding: EdgeInsetsDirectional
+                                                          .fromSTEB(110.0, 75.0,
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Quantidade:',
+                                                        style: FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(110.0, 75.0,
-                                                          0.0, 0.0),
+                                                      .fromSTEB(
+                                                          110.0, 15.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Quantidade:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
+                                                    'ID:',
+                                                    style:
+                                                        FlutterFlowTheme.of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w900,
+                                                            ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      110.0, 15.0, 0.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                      110.0, 55.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
+                                                'Estoque:',
+                                                style: FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  110.0, 55.0, 0.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              130.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            'Estoque:',
+                                            '3',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
                                         ),
@@ -570,15 +599,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          130.0, 15.0, 0.0, 0.0),
+                                          225.0, 35.0, 0.0, 0.0),
                                       child: Text(
-                                        '3',
+                                        'Creatina',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
@@ -586,13 +615,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      225.0, 35.0, 0.0, 0.0),
+                                      165.0, 55.0, 0.0, 0.0),
                                   child: Text(
-                                    'Creatina',
+                                    'Ativo',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.of(context).success,
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -602,15 +633,13 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  165.0, 55.0, 0.0, 0.0),
+                                  190.0, 75.0, 0.0, 0.0),
                               child: Text(
-                                'Ativo',
+                                '31',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color:
-                                          FlutterFlowTheme.of(context).success,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -618,40 +647,22 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              190.0, 75.0, 0.0, 0.0),
-                          child: Text(
-                            '31',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Container(
-                    width: 430.0,
-                    height: 122.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        width: 1.0,
                       ),
                     ),
-                    alignment: AlignmentDirectional(-1.00, -1.00),
-                    child: Stack(
-                      children: [
-                        Stack(
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        width: 430.0,
+                        height: 122.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
+                        child: Stack(
                           children: [
                             Stack(
                               children: [
@@ -665,95 +676,113 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                               children: [
                                                 Stack(
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  110.0,
-                                                                  35.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Nome do Produto:',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12.0,
+                                                    Stack(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      110.0,
+                                                                      35.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Nome do Produto:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 12.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(15.0),
+                                                            child: Image.network(
+                                                              'https://th.bing.com/th/id/R.f77afc573fc233163584f42b97ea6899?rik=rPUVa%2fMCKsmxkw&pid=ImgRaw&r=0',
+                                                              width: 90.0,
+                                                              height: 90.0,
+                                                              fit: BoxFit.cover,
                                                             ),
-                                                      ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                        child: Image.network(
-                                                          'https://th.bing.com/th/id/R.f77afc573fc233163584f42b97ea6899?rik=rPUVa%2fMCKsmxkw&pid=ImgRaw&r=0',
-                                                          width: 90.0,
-                                                          height: 90.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                      padding: EdgeInsetsDirectional
+                                                          .fromSTEB(110.0, 75.0,
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Quantidade:',
+                                                        style: FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(110.0, 75.0,
-                                                          0.0, 0.0),
+                                                      .fromSTEB(
+                                                          110.0, 15.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Quantidade:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
+                                                    'ID:',
+                                                    style:
+                                                        FlutterFlowTheme.of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w900,
+                                                            ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      110.0, 15.0, 0.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                      110.0, 55.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
+                                                'Estoque:',
+                                                style: FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  110.0, 55.0, 0.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              130.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            'Estoque:',
+                                            '4',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
                                         ),
@@ -761,15 +790,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          130.0, 15.0, 0.0, 0.0),
+                                          225.0, 35.0, 0.0, 0.0),
                                       child: Text(
-                                        '4',
+                                        'Aveia em flocos',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
@@ -777,13 +806,14 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      225.0, 35.0, 0.0, 0.0),
+                                      165.0, 55.0, 0.0, 0.0),
                                   child: Text(
-                                    'Aveia em flocos',
+                                    'Inativo',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context).error,
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -793,14 +823,13 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  165.0, 55.0, 0.0, 0.0),
+                                  190.0, 75.0, 0.0, 0.0),
                               child: Text(
-                                'Inativo',
+                                '0',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: FlutterFlowTheme.of(context).error,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -808,40 +837,22 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              190.0, 75.0, 0.0, 0.0),
-                          child: Text(
-                            '0',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
-                  child: Container(
-                    width: 430.0,
-                    height: 122.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        width: 1.0,
                       ),
                     ),
-                    alignment: AlignmentDirectional(-1.00, -1.00),
-                    child: Stack(
-                      children: [
-                        Stack(
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
+                      child: Container(
+                        width: 430.0,
+                        height: 122.0,
+                        decoration: BoxDecoration(
+                          color: FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(
+                            width: 1.0,
+                          ),
+                        ),
+                        alignment: AlignmentDirectional(-1.00, -1.00),
+                        child: Stack(
                           children: [
                             Stack(
                               children: [
@@ -855,95 +866,113 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                               children: [
                                                 Stack(
                                                   children: [
-                                                    Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  110.0,
-                                                                  35.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: Text(
-                                                        'Nome do Produto:',
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 12.0,
+                                                    Stack(
+                                                      children: [
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      110.0,
+                                                                      35.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: Text(
+                                                            'Nome do Produto:',
+                                                            style: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  fontSize: 12.0,
+                                                                ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      15.0,
+                                                                      15.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          child: ClipRRect(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(15.0),
+                                                            child: Image.network(
+                                                              'https://th.bing.com/th/id/OIP.gO9QXJg4wPIGbUhM_JBn9wHaI5?pid=ImgDet&rs=1',
+                                                              width: 90.0,
+                                                              height: 90.0,
+                                                              fit: BoxFit.cover,
                                                             ),
-                                                      ),
+                                                          ),
+                                                        ),
+                                                      ],
                                                     ),
                                                     Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  15.0,
-                                                                  15.0,
-                                                                  0.0,
-                                                                  0.0),
-                                                      child: ClipRRect(
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15.0),
-                                                        child: Image.network(
-                                                          'https://th.bing.com/th/id/OIP.gO9QXJg4wPIGbUhM_JBn9wHaI5?pid=ImgDet&rs=1',
-                                                          width: 90.0,
-                                                          height: 90.0,
-                                                          fit: BoxFit.cover,
-                                                        ),
+                                                      padding: EdgeInsetsDirectional
+                                                          .fromSTEB(110.0, 75.0,
+                                                              0.0, 0.0),
+                                                      child: Text(
+                                                        'Quantidade:',
+                                                        style: FlutterFlowTheme.of(
+                                                                context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                            ),
                                                       ),
                                                     ),
                                                   ],
                                                 ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
-                                                      .fromSTEB(110.0, 75.0,
-                                                          0.0, 0.0),
+                                                      .fromSTEB(
+                                                          110.0, 15.0, 0.0, 0.0),
                                                   child: Text(
-                                                    'Quantidade:',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
+                                                    'ID:',
+                                                    style:
+                                                        FlutterFlowTheme.of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily: 'Poppins',
+                                                              fontSize: 12.0,
+                                                              fontWeight:
+                                                                  FontWeight.w900,
+                                                            ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                             Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      110.0, 15.0, 0.0, 0.0),
+                                              padding:
+                                                  EdgeInsetsDirectional.fromSTEB(
+                                                      110.0, 55.0, 0.0, 0.0),
                                               child: Text(
-                                                'ID:',
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                          fontWeight:
-                                                              FontWeight.w900,
-                                                        ),
+                                                'Estoque:',
+                                                style: FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      fontSize: 12.0,
+                                                    ),
                                               ),
                                             ),
                                           ],
                                         ),
                                         Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  110.0, 55.0, 0.0, 0.0),
+                                          padding: EdgeInsetsDirectional.fromSTEB(
+                                              130.0, 15.0, 0.0, 0.0),
                                           child: Text(
-                                            'Estoque:',
+                                            '5',
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
                                                   fontFamily: 'Poppins',
                                                   fontSize: 12.0,
+                                                  fontWeight: FontWeight.bold,
                                                 ),
                                           ),
                                         ),
@@ -951,15 +980,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
-                                          130.0, 15.0, 0.0, 0.0),
+                                          225.0, 35.0, 0.0, 0.0),
                                       child: Text(
-                                        '5',
+                                        'Oleo de coco',
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
                                               fontSize: 12.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                       ),
                                     ),
@@ -967,13 +996,15 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                                 ),
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
-                                      225.0, 35.0, 0.0, 0.0),
+                                      165.0, 55.0, 0.0, 0.0),
                                   child: Text(
-                                    'Oleo de coco',
+                                    'Ativo',
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
+                                          color:
+                                              FlutterFlowTheme.of(context).success,
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -983,15 +1014,13 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
-                                  165.0, 55.0, 0.0, 0.0),
+                                  190.0, 75.0, 0.0, 0.0),
                               child: Text(
-                                'Ativo',
+                                '103',
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color:
-                                          FlutterFlowTheme.of(context).success,
                                       fontSize: 12.0,
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -999,25 +1028,11 @@ class _EstoqueWidgetState extends State<EstoqueWidget> {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              190.0, 75.0, 0.0, 0.0),
-                          child: Text(
-                            '103',
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
