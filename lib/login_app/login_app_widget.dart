@@ -120,7 +120,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                       highlightColor: Colors.transparent,
                                       onTap: () async {},
                                       child: Text(
-                                        'Use o seu mesmo email do nosso site\n para realizar o login',
+                                        'Use o seu mesmo email do nosso site\n para realizar o login ',
                                         textAlign: TextAlign.center,
                                         style: FlutterFlowTheme.of(context)
                                             .labelMedium
@@ -272,23 +272,6 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                       validator: _model
                                           .passwordControllerValidator
                                           .asValidator(context),
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: AlignmentDirectional(-0.95, 0.70),
-                                  child: InkWell(
-                                    splashColor: Colors.transparent,
-                                    focusColor: Colors.transparent,
-                                    hoverColor: Colors.transparent,
-                                    highlightColor: Colors.transparent,
-                                    onTap: () async {
-                                      context.pushNamed('EsqueciMinhaSenha');
-                                    },
-                                    child: Text(
-                                      'Esqueci a senha ',
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
                                     ),
                                   ),
                                 ),
