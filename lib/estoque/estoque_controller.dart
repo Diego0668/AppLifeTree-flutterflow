@@ -10,7 +10,7 @@ class EstoqueController{
 
   Future<bool> listarProdutos({required Int id, required String nome, required String imagem , required String statusProd , required String quantidade}) async {
 
-    dynamic dados = jsonEncode(<String, String>{
+    dynamic dados = jsonEncode(<String, String ,String ,String, String>{
                     "id": id.toString(),
                     "nome": nome.toString(),
                     "imagem": imagem.toString(),
