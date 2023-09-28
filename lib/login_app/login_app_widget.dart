@@ -1,7 +1,3 @@
-import 'package:flutter_animate/flutter_animate.dart';
-import 'package:life_tree_mobile/login_app/login_controller.dart';
-import 'package:toast/toast.dart';
-
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -16,7 +12,6 @@ class LoginAppWidget extends StatefulWidget {
 
   @override
   _LoginAppWidgetState createState() => _LoginAppWidgetState();
-
 }
 
 class _LoginAppWidgetState extends State<LoginAppWidget> {
@@ -31,7 +26,6 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
 
     _model.emailAddressController ??= TextEditingController();
     _model.passwordController ??= TextEditingController();
-    ToastContext().init(context);
   }
 
   @override
@@ -43,9 +37,6 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
 
   @override
   Widget build(BuildContext context) {
-    LoginController loginController = new LoginController();
-    
-
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
       child: Scaffold(
@@ -288,13 +279,7 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                                   alignment: AlignmentDirectional(0.00, -0.05),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      // TODO - LOGIN
-                                      await (
-                                        loginController.loginUsuario(email: _model.emailAddressController.text, senha: _model.passwordController.text,)
-                                        ) ? 
-                                        context.pushNamed('Estoque') 
-                                        : 
-                                        Toast.show("Erro Login - Usuário ou senha inválida.", duration: Toast.lengthShort, gravity: Toast.bottom);
+                                      context.pushNamed('Estoque');
                                     },
                                     text: 'Entrar',
                                     options: FFButtonOptions(
@@ -330,6 +315,32 @@ class _LoginAppWidgetState extends State<LoginAppWidget> {
                   ),
                 ),
               ),
+              if (responsiveVisibility(
+                context: context,
+                phone: false,
+                tablet: false,
+              ))
+                Expanded(
+                  flex: 6,
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(16.0, 16.0, 16.0, 16.0),
+                    child: Container(
+                      width: 100.0,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.network(
+                            'https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1380&q=80',
+                          ).image,
+                        ),
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                    ),
+                  ),
+                ),
             ],
           ),
         ),
